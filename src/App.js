@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Container } from '@mui/material';
+import Menu from './components/Navbar';
+import Home from './components/Home';
+import ProfileGroup from './components/ProfileGroup';
+import CreateGroup from './components/CreateGroup';
+import Login from './components/Login';
+import PersonalArea from './components/PersonalArea'
+import Profile from './components/Profile';
 
-function App() {
+
+function App() { 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Menu/>
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profileG" element={<ProfileGroup />} />
+          <Route path="/crateG" element={<CreateGroup />} />
+          <Route path="/log in" element={<Login />} />
+          <Route path="/personal area" element={<PersonalArea />} />
+          <Route path="/profile" element={<Profile />} />
+          {/**profile edit */}
+        </Routes>
+      </Container>
+    </BrowserRouter >
   );
 }
 
